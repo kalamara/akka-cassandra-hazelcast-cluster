@@ -1,0 +1,47 @@
+<hazelcast
+        xsi:schemaLocation="http://www.hazelcast.com/schema/config http://www.hazelcast.com/schema/config/hazelcast-config-3.7.xsd"
+        xmlns="http://www.hazelcast.com/schema/config"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <group>
+        <name>bookstore-akka-cluster</name>
+        <password>dev-pass-akka</password>
+    </group>
+
+
+    <properties>
+        <!--<property name="hazelcast.logging.type">${logger}</property>-->
+
+
+        <!-- <property name="hazelcast.io.thread.count">16</property>
+         <property name="hazelcast.io.input.thread.count">8</property>
+         <property name="hazelcast.io.output.thread.count">8</property>
+         <property name="hazelcast.operation.generic.thread.count">64</property>
+         <property name="hazelcast.operation.thread.count">64</property>
+         <property name="hazelcast.clientengine.thread.count">256</property>
+         <property name="hazelcast.client.event.thread.count">16</property>
+         <property name="hazelcast.event.thread.count">16</property>
+ -->
+        <!--<property name="hazelcast.icmp.enabled">true</property>
+        <property name="hazelcast.query.predicate.parallel.evaluation">true</property>
+        <property name="hazelcast.client.heartbeat.interval">100000</property>
+        <property name="hazelcast.heartbeat.interval.seconds">10</property>
+        <property name="hazelcast.query.optimizer.type">RULES</property>-->
+    </properties>
+
+    <network>
+        <join>
+            <multicast enabled="true"/>
+            <tcp-ip enabled="false"/>
+        </join>
+    </network>
+
+
+    <management-center enabled="true">
+        http://192.168.1.87:8089/mancenter-3.7
+    </management-center>
+
+    <import resource="hazelcast-map-config.xml"></import>
+
+
+</hazelcast>

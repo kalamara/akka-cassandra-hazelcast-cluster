@@ -1,0 +1,38 @@
+<hazelcast-client xsi:schemaLocation="http://www.hazelcast.com/schema/client-config hazelcast-client-config-3.7.xsd"
+                  xmlns="http://www.hazelcast.com/schema/client-config"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <group>
+        <name>bookstore-akka-cluster</name>
+        <password>dev-pass-akka</password>
+    </group>
+
+    <network>
+
+        <smart-routing>true</smart-routing>
+        <redo-operation>true</redo-operation>
+        <connection-timeout>60000</connection-timeout>
+        <connection-attempt-period>3000</connection-attempt-period>
+        <connection-attempt-limit>2</connection-attempt-limit>
+        <socket-options>
+            <tcp-no-delay>false</tcp-no-delay>
+            <keep-alive>true</keep-alive>
+            <reuse-address>true</reuse-address>
+            <linger-seconds>3</linger-seconds>
+            <timeout>-1</timeout>
+            <buffer-size>32</buffer-size>
+        </socket-options>
+
+    </network>
+
+    <near-cache name="authors">
+        <time-to-live-seconds>0</time-to-live-seconds>
+        <max-idle-seconds>0</max-idle-seconds>
+        <eviction-policy>LFU</eviction-policy>
+        <invalidate-on-change>true</invalidate-on-change>
+        <in-memory-format>OBJECT</in-memory-format>
+        <local-update-policy>INVALIDATE</local-update-policy>
+    </near-cache>
+
+
+</hazelcast-client>
