@@ -1,0 +1,27 @@
+syntax = "proto2";
+
+package com.example;
+import "scalapb/scalapb.proto";
+
+//option (scalapb.message).extends = "Product";
+//option (scalapb.message).companion_extends = "Product";
+
+message WordCountRequestMsg {
+    required string author = 1;
+    required string tag = 2;
+}
+
+
+message WordCountResponseMsg {
+    required string author = 1;
+    required int64 isbn = 2;
+    required int64 wordCount = 3;
+    required int32 year = 4;
+    required string title = 5;
+}
+
+
+message WordCountListResponseMsg {
+   repeated WordCountResponseMsg books = 1;
+}
+
